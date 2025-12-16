@@ -36,19 +36,19 @@
     },
     "research": [
         {
-            "title": "Viral-Host Interactions",
-            "image": "images/placeholder_research.jpg",
-            "text": "Mapping the dynamic spatial interactions between viral genomes and host factors."
+            "title": "Mapping Subcellular RBP:RNA Interactions",
+            "image": "images/research/CoCLIP.png",
+            "text": "We are developing innovative tools to capture and analyze RBP:RNA interactions with unprecedented subcellular resolution. By biochemically preserving spatial information in living cells, we aim to uncover how the localization of these interactions influences cellular functions and viral infections. This project will provide crucial insights into how RBPs operate in distinct cellular compartments and how their spatial distribution affects their roles in RNA metabolism."
         },
         {
-            "title": "RNA Regulatory Logic",
-            "image": "images/placeholder_research.jpg",
-            "text": "Decoding the regulatory logic of RNA-protein networks."
+            "title": "Decoding RBP Dynamics in Viral Infections",
+            "image": "images/research/Lifecycle.png",
+            "text": "Using positive-sense RNA viruses as model systems, we are investigating how RBPs how cellular RBPs orchestrate the balance between viral genome replication, translation, and virion assembly. We use viral reverse genetics, CRISPR screening, and advanced RNA profiling to map the dynamic interactions between viral genomes and host RBPs throughout the infection cycle. Our goal is to unravel the regulatory logic of RBPs during infection with an eye toward novel antivirals and therapeutics."
         },
         {
-            "title": "Tool Development",
-            "image": "images/placeholder_research.jpg",
-            "text": "Developing novel tools to study RNA biology at unprecedented spatial and temporal resolution."
+            "title": "Modeling RBP Networks during Innate Immunity",
+            "image": "images/research/Sensing.png",
+            "text": "Host recognition of viral RNA by RBPs is among the foundational steps of innate immune sensing, yet how this process is coordinated among RBPs with different downstream outcomes is unknown. We use our experimental data with state-of-the-art bioinformatics tool to build models of RBP activities and interaction networks during changing cell states. By analyzing how RBP:RNA interactions change in response to infection, we aim to predict key regulatory nodes and potential vulnerabilities in the host-pathogen interface, guiding future experimental validations and therapeutic strategies. This work bridges our experimental work with a systems-level understanding of RNA regulation."
         }
     ],
     "people": {
