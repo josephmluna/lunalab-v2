@@ -1,0 +1,126 @@
+{
+    "meta": {
+        "title": "Luna Lab",
+        "description": "Luna Lab for RNA Systems Virology at Case Western Reserve University",
+        "nav_links": [
+            {
+                "name": "Home",
+                "target": "home"
+            },
+            {
+                "name": "Research",
+                "target": "research"
+            },
+            {
+                "name": "People",
+                "target": "people"
+            },
+            {
+                "name": "Publications",
+                "target": "publications"
+            },
+            {
+                "name": "News",
+                "target": "news"
+            },
+            {
+                "name": "Contact",
+                "target": "contact"
+            }
+        ]
+    },
+    "home": {
+        "hero_text": "Unraveling viral secrets through RNA biology",
+        "sub_text": "Luna Lab for RNA Systems Virology",
+        "intro": "The Luna Lab is a team of molecular biologists and virologists dedicated to understanding how RNA-binding proteins orchestrate cellular responses during viral infections. We use RNA viruses as tools to uncover fundamental principles of RNA biology and develop potential therapeutic strategies for viral diseases, RNA-related disorders, and more. Current work focuses on mapping the dynamic spatial interactions between viral genomes and host factors, decoding the regulatory logic of RNA-protein networks, and developing novel tools to study RNA biology at unprecedented spatial and temporal resolution."
+    },
+    "research": [
+        {
+            "title": "Viral-Host Interactions",
+            "image": "images/placeholder_research.jpg",
+            "text": "Mapping the dynamic spatial interactions between viral genomes and host factors."
+        },
+        {
+            "title": "RNA Regulatory Logic",
+            "image": "images/placeholder_research.jpg",
+            "text": "Decoding the regulatory logic of RNA-protein networks."
+        },
+        {
+            "title": "Tool Development",
+            "image": "images/placeholder_research.jpg",
+            "text": "Developing novel tools to study RNA biology at unprecedented spatial and temporal resolution."
+        }
+    ],
+    "people": {
+        "principal_investigator": [
+            {
+                "name": "Joseph Luna, PhD",
+                "role": "Principal Investigator",
+                "image": "images/joseph_luna.jpg",
+                "bio": "Dr. Luna leads the lab at the Dept. of Biochemistry & RNA Center, Case Western Reserve University."
+            }
+        ],
+        "members": [
+            {
+                "name": "Shashi S. Singh",
+                "role": "Postdoctoral Researcher",
+                "image": "images/placeholder_member.jpg"
+            },
+            {
+                "name": "Alexa Schnell",
+                "role": "PhD Student",
+                "image": "images/placeholder_member.jpg"
+            },
+            {
+                "name": "Rohan Krishna",
+                "role": "PhD Student",
+                "image": "images/placeholder_member.jpg"
+            },
+            {
+                "name": "Vidusha Kothwela",
+                "role": "PhD Student",
+                "image": "images/placeholder_member.jpg"
+            },
+            {
+                "name": "Penelope Cloonan",
+                "role": "Undergraduate Student",
+                "image": "images/placeholder_member.jpg"
+            }
+        ]
+    },
+    "publications": [
+        {
+            "year": 2025,
+            "title": "Inherent Specificity and Mutational Sensitivity as Quantitative Metrics for RBP Binding",
+            "authors": "Luna Lab",
+            "journal": "DOI: 10.1101/g9dkkw",
+            "link": "https://doi.org/10.1101/g9dkkw"
+        },
+        {
+            "year": 2024,
+            "title": "A genome-wide arrayed CRISPR screen identifies PLSCR1 as an intrinsic barrier to SARS-CoV-2 entry...",
+            "authors": "Luna Lab et al.",
+            "journal": "PubMed: 39316623",
+            "link": "https://www.ncbi.nlm.nih.gov/pubmed/39316623"
+        },
+        {
+            "year": 2024,
+            "title": "Mapping RNA-Protein Interactions with Subcellular Resolution Using Colocalization CLIP",
+            "authors": "Luna Lab et al.",
+            "journal": "DOI: 10.1101/gt2296",
+            "link": "https://doi.org/10.1101/gt2296"
+        }
+    ],
+    "news": [
+        {
+            "date": "December 2024",
+            "title": "Lab Website Redesign",
+            "text": "We are redesigning our website to be data-driven and mobile-friendly."
+        }
+    ],
+    "contact": {
+        "email": "contact@lunalab.org",
+        "address": "Case Western Reserve University, Cleveland, OH",
+        "twitter": "https://twitter.com/lunalab"
+    }
+}
