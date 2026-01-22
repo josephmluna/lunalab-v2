@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,132 +10,432 @@
         :root {
             --bg-color: #ffffff;
             --text-color: #333333;
-            --accent-color: #003366; /* Academic Blue */
+            --accent-color: #003366;
+            /* Academic Blue */
             --light-gray: #f4f4f4;
+            --sidebar-width: 260px;
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --max-width: 1000px;
+            --max-content-width: 900px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); color: var(--text-color); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; display: block; }
-        
-        /* --- LAYOUT --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .layout-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR (HEADER) --- */
         header {
+            width: var(--sidebar-width);
             background: var(--bg-color);
-            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #eee;
             position: sticky;
             top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            max-width: var(--max-width);
-            margin: 0 auto;
+            height: 100vh;
+            padding: 2rem;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 2rem;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+
+        .logo-area {
+            width: 150px;
+            height: 150px;
+            background: var(--accent-color);
+            /* Placeholder for actual logo */
+            color: white;
+            display: flex;
             align-items: center;
-            padding: 1rem 2rem;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            /* Slight rounded corners for logo box */
         }
 
-        .logo { font-weight: bold; font-size: 1.5rem; color: var(--accent-color); }
-        
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--accent-color); }
-
-        /* Mobile Menu */
-        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
-        
-        main { max-width: var(--max-width); margin: 0 auto; padding: 2rem; }
-        
-        section { 
-            scroll-margin-top: 80px; 
-            margin-bottom: 4rem; 
-            display: none; /* Hidden by default */
-            animation: fadeIn 0.5s ease-in-out;
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
         }
-        section.active { display: block; }
-        
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: #555;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active-link {
+            color: var(--accent-color);
+            padding-left: 5px;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        /* --- MAIN CONTENT --- */
+        main {
+            flex: 1;
+            padding: 4rem 6rem;
+            /* Generous padding */
+            max-width: var(--max-content-width);
+            /* Removed margin: 0 auto to allow left justification relative to content area */
+        }
+
+        section {
+            scroll-margin-top: 2rem;
+            margin-bottom: 4rem;
+            display: none;
+            /* Hidden by default */
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        section.active {
+            display: block;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        h2 { font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--light-gray); padding-bottom: 0.5rem; color: var(--accent-color); }
-        
-        /* --- SECTIONS --- */
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-weight: 300;
+            /* Lighter weight for cleaner look */
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        /* --- SECTIONS SPECIFIC --- */
         /* Hero */
-        #home { text-align: center; padding: 4rem 0; }
-        .hero-title { font-size: 3rem; margin-bottom: 1rem; color: var(--accent-color); }
-        .hero-sub { font-size: 1.5rem; color: #666; font-weight: 300; }
-        
+        #home {
+            padding-top: 2rem;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-size: 1.4rem;
+            color: #666;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
         /* Research */
-        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .research-card { background: var(--light-gray); padding: 1.5rem; border-radius: 8px; }
-        .research-card h3 { margin-bottom: 1rem; }
-        
+        .research-card {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f4f4f4;
+        }
+
+        .research-card:last-child {
+            border-bottom: none;
+        }
+
+        .research-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .research-card img {
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            max-height: 400px;
+            object-fit: contain;
+            background: #fafafa;
+        }
+
         /* People */
-        .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2rem; }
-        .person-card { text-align: center; }
-        .person-img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; background: #ddd; }
-        .person-name { font-weight: bold; font-size: 1.1rem; }
-        .person-role { font-size: 0.9rem; color: #666; }
+        .people-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .person-card {
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+            text-align: left;
+        }
+
+        .person-img {
+            width: 240px;
+            /* Same as PI */
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            border-radius: 4px;
+            /* Consistent with PI */
+            flex-shrink: 0;
+            background: #eee;
+            filter: grayscale(20%);
+            transition: filter 0.3s;
+        }
+
+        .person-img:hover {
+            filter: grayscale(0%);
+        }
+
+        .person-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 1rem;
+        }
+
+        .person-name {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .person-role {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .person-bio {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* PI Section adjustments */
+        .pi-container {
+            display: flex;
+            gap: 2rem;
+            /* Consistent gap */
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+
+        .pi-img {
+            width: 240px;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
 
         /* Publications */
-        .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-        .pub-item { padding-left: 1rem; border-left: 3px solid var(--accent-color); }
-        .pub-title { font-weight: bold; }
-        .pub-meta { font-style: italic; color: #555; }
-        
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pub-item {
+            /* Cleaner look, no side border */
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .pub-title a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+
+        .pub-meta {
+            font-family: serif;
+            color: #555;
+        }
+
         /* News */
-        .news-item { margin-bottom: 1.5rem; }
-        .news-date { font-weight: bold; color: var(--accent-color); display: block; margin-bottom: 0.25rem; }
-        
-        /* Contact */
-        .contact-info p { margin-bottom: 0.5rem; }
+        .news-item {
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--light-gray);
+            padding-left: 1.5rem;
+        }
+
+        .news-date {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #888;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
 
         /* Footer */
-        footer { text-align: center; padding: 2rem; background: var(--light-gray); margin-top: 4rem; font-size: 0.9rem; color: #666; }
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #999;
+        }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .nav-links { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                right: 0; 
-                background: white; 
-                padding: 1rem; 
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        @media (max-width: 900px) {
+            main {
+                padding: 3rem;
             }
-            .nav-links.active { display: flex; }
-            .hamburger { display: block; }
-            .hero-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+            }
+
+            header {
+                width: 100%;
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .logo-area {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 0;
+                font-size: 0.8rem;
+            }
+
+            .site-title {
+                display: none;
+            }
+
+            /* Hide title if logo serves purpose, or adjust */
+
+            nav {
+                width: auto;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            .pi-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .pi-img {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <a href="#" class="logo" id="site-title">Lab Name</a>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <div class="nav-links" id="nav-links">
-                <!-- Links injected by JS -->
+    <div class="layout-container">
+
+        <header>
+            <div>
+                <div class="logo-area">LOGO</div>
+                <div class="site-title"><a href="#home">Luna Lab</a></div>
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">Case Western Reserve University
+                </div>
             </div>
-        </nav>
-    </header>
 
-    <main id="main-content">
-        <!-- Content injected by JS -->
-    </main>
+            <nav>
+                <div class="hamburger" onclick="toggleMenu()">☰</div>
+                <div class="nav-links" id="nav-links">
+                    <!-- Links injected by JS -->
+                </div>
+            </nav>
+        </header>
 
-    <footer>
-        <p>&copy; <span id="year"></span> <span id="footer-title"></span></p>
-    </footer>
+        <main id="main-content">
+            <!-- Content injected by JS -->
+
+            <footer>
+                <p>&copy; <span id="year"></span> <span id="footer-title"></span></p>
+            </footer>
+        </main>
+
+    </div>
 
     <script>
         // Toggle Mobile Menu
@@ -154,26 +455,39 @@
             }
         }
 
-        function renderSite(data) {
+        var renderSite = function (data) {
             // Meta
             document.title = data.meta.title;
-            document.getElementById('site-title').innerText = data.meta.title;
+            // Site title injection handled in HTML static part for sidebar, but we can update text if needed
+            // document.querySelector('.site-title a').innerText = data.meta.title; 
             document.getElementById('footer-title').innerText = data.meta.title;
             document.getElementById('year').innerText = new Date().getFullYear();
 
             // Navigation
             const navContainer = document.getElementById('nav-links');
+            navContainer.innerHTML = ''; // Clear existing
             data.meta.nav_links.forEach(link => {
                 const a = document.createElement('a');
                 a.href = `#${link.target}`;
                 a.innerText = link.name;
-                a.onclick = () => document.querySelector('.nav-links').classList.remove('active'); // Close menu on click
+                a.dataset.target = link.target; // Store target for styling
+                a.onclick = () => {
+                    document.querySelector('.nav-links').classList.remove('active'); // Close menu on click
+                    // Active Styling Update will be handled by hashchange/showSection
+                };
                 navContainer.appendChild(a);
             });
 
             // Main Content Building
             const main = document.getElementById('main-content');
-            
+            // Clear main content (except footer if we want to preserve it, but we are appending sections before it usually)
+            // Ideally we separate footer from dynamic injection or just re-inject.
+            // Let's grab footer to append later or just keep it at bottom.
+            const footer = document.querySelector('footer');
+
+            // Remove old dynamic sections if any (for safety if re-running)
+            document.querySelectorAll('section').forEach(e => e.remove());
+
             // 1. Home / Hero
             if (data.home) {
                 const section = document.createElement('section');
@@ -181,28 +495,29 @@
                 section.innerHTML = `
                     <h1 class="hero-title">${data.home.hero_text}</h1>
                     <p class="hero-sub">${data.home.sub_text}</p>
-                    <div style="margin-top:2rem; max-width:800px; margin-left:auto; margin-right:auto;">
+                    <div style="margin-top:3rem; max-width:700px; line-height: 1.8; font-size: 1.05rem;">
                         <p>${data.home.intro}</p>
                     </div>
                 `;
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
 
             // 2. Research
             if (data.research) {
                 const section = document.createElement('section');
                 section.id = 'research';
-                section.innerHTML = `<h2>Research</h2><div class="research-grid"></div>`;
-                const grid = section.querySelector('.research-grid');
+                section.innerHTML = `<h2>Research</h2><div class="research-container"></div>`;
+                const container = section.querySelector('.research-container');
                 data.research.forEach(item => {
-                    grid.innerHTML += `
+                    container.innerHTML += `
                         <div class="research-card">
                             <h3>${item.title}</h3>
                             <p>${item.text}</p>
+                            ${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}
                         </div>
                     `;
                 });
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
 
             // 3. People
@@ -210,16 +525,18 @@
                 const section = document.createElement('section');
                 section.id = 'people';
                 section.innerHTML = `<h2>People</h2>`;
-                
+
                 // PI
                 if (data.people.principal_investigator) {
                     const pi = data.people.principal_investigator[0];
                     section.innerHTML += `
-                        <div style="margin-bottom: 3rem; text-align:center;">
-                            <div class="person-img" style="background-image: url('${pi.image}'); background-size: cover;"></div>
-                            <h3>${pi.name}</h3>
-                            <p style="color:var(--accent-color)">${pi.role}</p>
-                            <p style="max-width:600px; margin: 1rem auto;">${pi.bio}</p>
+                        <div class="pi-container">
+                            <div class="pi-img" style="background-image: url('${pi.image}'); background-size: cover; background-position: center;"></div>
+                            <div>
+                                <h3 style="font-size: 1.5rem;">${pi.name}</h3>
+                                <p style="color:var(--accent-color); font-weight:bold; margin-bottom: 1rem;">${pi.role}</p>
+                                <p style="line-height:1.7;">${pi.bio}</p>
+                            </div>
                         </div>
                     `;
                 }
@@ -230,16 +547,19 @@
                     data.people.members.forEach(member => {
                         membersHtml += `
                             <div class="person-card">
-                                <div class="person-img" style="background-image: url('${member.image}'); background-size: cover;"></div>
-                                <div class="person-name">${member.name}</div>
-                                <div class="person-role">${member.role}</div>
+                                <div class="person-img" style="background-image: url('${member.image}'); background-size: cover; background-position: center;"></div>
+                                <div class="person-info">
+                                    <div class="person-name">${member.name}</div>
+                                    <div class="person-role">${member.role}</div>
+                                    <div class="person-bio">${member.bio || ''}</div>
+                                </div>
                             </div>
                         `;
                     });
                     membersHtml += `</div>`;
                     section.innerHTML += membersHtml;
                 }
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
 
             // 4. Publications
@@ -256,7 +576,7 @@
                         </div>
                     `;
                 });
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
 
             // 5. News
@@ -272,7 +592,7 @@
                         </div>
                     `;
                 });
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
 
             // 6. Contact
@@ -281,26 +601,18 @@
                 section.id = 'contact';
                 section.innerHTML = `
                     <h2>Contact</h2>
-                    <div class="contact-info">
-                        <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-                        <p><strong>Address:</strong> ${data.contact.address}</p>
-                        <p><strong>Twitter/X:</strong> <a href="${data.contact.twitter}" target="_blank">Link</a></p>
+                    <div class="contact-info" style="font-size: 1.1rem; line-height: 1.8;">
+                        <p><strong>Email:</strong> <a href="mailto:${data.contact.email}" style="color:var(--accent-color)">${data.contact.email}</a></p>
+                        <p><strong>Address:</strong><br> ${data.contact.address.replace(/,/g, '<br>')}</p>
+                        <p><strong>Example Social:</strong> <a href="${data.contact.twitter}" target="_blank">Twitter/X</a></p>
                     </div>
                 `;
-                main.appendChild(section);
+                main.insertBefore(section, footer);
             }
-        }
-        
-        // Call handleHashChange after render to show initial section
-        renderSite = (function(original) {
-            return function(data) {
-                original(data);
-                handleHashChange();
-            };
-        })(renderSite);
 
-        // Initialize
-        loadData();
+            // Trigger hash check now that content is built
+            handleHashChange();
+        };
 
         // --- Navigation Logic ---
         function showSection(sectionId) {
@@ -309,20 +621,30 @@
                 sec.classList.remove('active');
             });
 
-            // 2. Show target section
+            // 2. Update Nav State
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active-link');
+                if (link.dataset.target === sectionId) link.classList.add('active-link');
+            });
+
+            // 3. Show target section
             const target = document.getElementById(sectionId);
             if (target) {
                 target.classList.add('active');
-                window.scrollTo(0, 0); // Scroll to top on section change
+                window.scrollTo(0, 0);
             } else {
-                // Default to home if section not found (or if hash is empty/invalid)
                 const home = document.getElementById('home');
-                if (home) home.classList.add('active');
+                if (home) {
+                    home.classList.add('active');
+                    // update nav for home
+                    const homeLink = document.querySelector('.nav-links a[data-target="home"]');
+                    if (homeLink) homeLink.classList.add('active-link');
+                }
             }
         }
 
         function handleHashChange() {
-            const hash = window.location.hash.substring(1); // Remove '#'
+            const hash = window.location.hash.substring(1);
             if (hash) {
                 showSection(hash);
             } else {
@@ -330,9 +652,11 @@
             }
         }
 
-        // Listen for hash changes
         window.addEventListener('hashchange', handleHashChange);
 
+        // Initialize
+        loadData();
     </script>
 </body>
+
 </html>
